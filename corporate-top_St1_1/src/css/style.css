@@ -1,0 +1,273 @@
+@charset "UTF-8";
+
+:root {
+  /* 色管理用の変数 */
+  --black-color: #333;
+  --white-color: #fff;
+  --gray-color: #aaa;
+  --gray-color02: #fafafa;
+  --primary-color: #1863af;
+  --accent-color: #fc7f24;
+}
+
+:root {
+  /* コンテンツ幅管理用の変数 */
+  --content-width-sm: 800px;
+  --content-width: 960px;
+  --content-width-lg: 1088px;
+}
+
+:root {
+  /* z-index管理用の変数 */
+  --z-index-back: -1;
+  --z-index-default: 1;
+  --z-index-header: 100;
+  --z-index-menu: 150;
+  --z-index-modal: 200;
+}
+
+/* ---------- base ---------- */
+body {
+  color: var(--black-color);
+  font-size: 16px;
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+}
+
+/* ---------- utility ---------- */
+
+/* ---------- layout ---------- */
+.l_header {
+  height: 72px;
+  width: 100%;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-header);
+}
+
+.l_header-logo {
+  font-size: 20px;
+  font-weight: bold;
+  height: 100%;
+  /* 以下のコメントアウトはKV完成後外してください */
+  /* color: var(--white-color); */
+}
+
+.l_header-logo_link {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+/* ---------- module ---------- */
+.m_hamburger {
+  width: 32px;
+  height: 24px;
+  position: relative;
+  z-index: var(--z-index-menu);
+}
+
+.m_hamburger-bar {
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  background: var(--black-color);
+  left: 50%;
+}
+
+.m_hamburger-bar:first-child {
+  top: 0;
+  transform: translate(-50%, 0);
+}
+
+.m_hamburger-bar:nth-child(2) {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.m_hamburger-bar:last-child {
+  top: 100%;
+  transform: translate(-50%, -100%);
+}
+
+.m_btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.16);
+  color: var(--white-color);
+  font-weight: bold;
+}
+
+.m_btn__mail {
+  background-color: var(--accent-color);
+}
+
+.m_btn__mail::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background: url(../img/btn_email.svg) center / contain no-repeat;
+  margin-left: 8px;
+}
+
+.m_section-title {
+  position: relative;
+}
+
+.m_section-title::before,
+.m_section-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2px;
+  width: 24px;
+  background: var(--primary-color);
+}
+
+.m_section-title::before {
+  left: 0;
+}
+
+.m_section-title::after {
+  right: 0;
+}
+
+.m_section-title_main {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.m_section-title_sub {
+  color: var(--accent-color);
+  letter-spacing: 0.3em;
+  text-align: center;
+}
+/* ---------- top ---------- */
+.top_kv {
+  height: 100vh;
+  background: linear-gradient(rgba(51, 51, 51, 0.2), rgba(51, 51, 51, 0.2)),
+    url(../img/bg_kv.jpg) center top / cover;
+}
+
+.top_kv-inner {
+  position: relative;
+  height: 100%;
+}
+
+.top_kv_box {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.top_kv_copy {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--white-color);
+  text-shadow: 2px 2px 2px rgba(170, 170, 170, 0.16);
+}
+
+.top_kv_sub-copy {
+  margin-top: 16px;
+  font-weight: bold;
+  color: var(--white-color);
+}
+
+.top_kv_btn-wrapper {
+  width: 264px;
+  height: 60px;
+  margin: 40px auto 0;
+}
+
+.top_kv-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.top_kv-scroll_txt {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--white-color);
+  text-align: center;
+}
+
+.top_kv-scroll_arrow {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 8px auto 0;
+  border: 1px solid var(--white-color);
+  color: var(--white-color);
+}
+
+.top_problem_posts {
+  margin: 48px auto 0;
+  max-width: var(--content-width-lg);
+}
+
+.top_problem-post:not(:first-child) {
+  margin-top: 40px;
+}
+
+.top_problem-post_title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.top_problem-post_txt {
+  margin-top: 24px;
+}
+
+.top_suggestion {
+  padding: 120px 0;
+  background: var(--primary-color);
+  position: relative;
+}
+
+.top_suggestion::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 32px;
+  border-style: solid;
+  border-color: var(--primary-color) transparent transparent transparent;
+}
+
+.top_suggestion_txt {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--white-color);
+  padding: 0 8px;
+}
+/* ---------- service ---------- */
+
+/* ---------- case ---------- */
+
+/* ---------- company ---------- */
+
+/* ---------- contact ---------- */
